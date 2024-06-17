@@ -7,6 +7,32 @@
     <title>Document</title>
 </head>
 <body>
+    
+    <div class="LoginIn">
+        <form action="" class="form" id="logIn">
+            <h1 class="form-title">Welcome Back!</h1>
+
+            <div class="createAccount">
+                <small>New user? <a id="CreateNewAccount" href="/CreatAccount.html">Create an account</a></small>
+            </div>
+
+            <div class="form-message form-message-error">Incorrect username/password combination</div>
+
+            <div class="form-input-group">
+
+                <label for="email_address">Email Address</label><br>
+                <input type="text" id="email_address" name="email_address" value="email_address" autofocus><br>
+                <div class="form-emailInput-error-message">This is an error message</div>
+            
+                <label for="password">Password</label><br>
+                <input type="password" id="password" name="password"><br>
+
+            </div>
+
+            <button class="form-button" type="submit">Submit</button>
+            
+
+        </form>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
 <script src="index.js" type="module"></script>
