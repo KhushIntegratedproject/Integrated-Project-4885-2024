@@ -12,27 +12,23 @@
         <form action="" class="form" id="Create__account">
             <h1 class="form-title">Create an account</h1>
 
-            <p>Sign up with email</p>
-            <small>Already have an account <a id="SignIn" href="./index.html">Sign in</a></small>
-
-            <!-- <div class="form-message form__message--error">This is an error message</div> -->
-
             <div class="form-input-group">
 
-                <label for="Full_Name">Full Name</label><br>
-                <input type="text" id="Full_Name" name="Full_Name" value="" autofocus required><br>
+                <label for="NewPassword">Password</label><br>
+                <input type="password" id="NewPassword" name="NewPassword" required><br>
                 <!-- <div class="form__input-message--error">This is an error message</div> -->
 
-                <label for="email">Email Address</label><br>
-                <input type="email" id="email" name="email" value="" autofocus required><br>
+                <label for="Re_enter_password">Re Enter Password</label><br>
+                <input type="password" id="Re_enter_password" name="Re_enter_password" required><br>
                 <!-- <div class="form__input-message--error">This is an error message</div> -->
+
+                <input type="checkbox" name="SaveId" id="SaveId">
+                <label for="SaveId">I agree with Upzy's Terms of service,Privacy Policy, and default Location and Notification Settings.</label><br>
 
             </div>
 
-            <div class="SignInButton">
-                <button class="form-button" id="SignIn" type="submit"><a href="./CreateAccount2of2.html">Continue</a></button>
-            </div>
-
+            <button class="form-button" type="submit">Continue</button>
+            <a href="./index.html">back_to_index</a>
         </form>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>

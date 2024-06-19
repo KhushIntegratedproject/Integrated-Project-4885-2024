@@ -4,37 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Upzy</title>
 </head>
 <body>
-    
+
     <div class="LoginIn">
         <form action="" class="form" id="logIn">
             <h1 class="form-title">Welcome Back!</h1>
 
             <div class="createAccount">
-                <small>New user? <a id="CreateNewAccount" href="/CreatAccount.html">Create an account</a></small>
+                <small>New user? <a id="CreateNewAccount" href="./CreateAccount.html">Create an account</a></small>
             </div>
 
-            <div class="form-message form-message-error">Incorrect username/password combination</div>
+            <!-- <div class="form-message form__message--error">This is an error message</div> -->
 
             <div class="form-input-group">
 
-                <label for="email_address">Email Address</label><br>
-                <input type="text" id="email_address" name="email_address" value="email_address" autofocus><br>
-                <div class="form-emailInput-error-message">This is an error message</div>
+                <label for="email" >Email Address</label><br>
+                <input type="email" id="email" name="email" value="" autofocus required><br>
+                <!-- <div class="form__input-message--error">This is an error message</div> -->
             
                 <label for="password">Password</label><br>
-                <input type="password" id="password" name="password"><br>
+                <input type="password" id="password" name="password" required><br>
+                <!-- <div class="form__input-message--error">This is an error message</div> -->
+
+
+                <input type="checkbox" name="SaveId" id="SaveId">
+                <label for="SaveId">Keep me logged In</label><br>
 
             </div>
 
-            <button class="form-button" type="submit">Submit</button>
+            <div id="SignInButton">
+                <button id="SignIn" class="form-button" type="submit">Sign In</button>
+            </div>
             
 
         </form>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+<script defer src="./init-firebase.js"></script>
 <script src="index.js" type="module"></script>
+
 </body>
 </html>
