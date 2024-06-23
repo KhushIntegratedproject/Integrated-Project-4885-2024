@@ -1,0 +1,110 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+#map {
+    height: 100vh; /* The height is 400 pixels */
+    width: 100vw; /* The width is the width of the web page */
+}
+
+/* sidebar */
+
+body {
+    position: relative;
+    z-index: 0;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 2%;
+
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-wrapper {
+    position: absolute;
+    top: 0;
+    padding: 1rem;
+}
+
+/* sidebar tags */
+
+.tags ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tags ul li {
+    padding: 0.3rem 0.6rem;
+    background-color: lightgrey;
+    border-radius: 30px;
+}
+
+/* sidebar cards */
+.cards {
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+}
+
+.cards {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.card .card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-top: 0.5rem;
+}
+
+.cards .card {
+    padding: 1rem;
+    background-color: rgb(246, 246, 246);
+    border: 1px solid rgb(213, 213, 213);
+    border-radius: 10px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card img {
+    border-radius: 10px;
+}
+
+.card .name {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* sidebar --- */
