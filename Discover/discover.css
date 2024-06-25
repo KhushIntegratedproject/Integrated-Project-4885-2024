@@ -10,6 +10,12 @@
         sans-serif;
 }
 
+:root {
+    --size-1: 0.5rem;
+    --size-2: 2rem;
+    --size-1: 3rem;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -73,10 +79,19 @@ body {
 }
 
 .cards {
-    width: 100%;
-    display: flex;
+    /* display: flex;
     flex-direction: row;
+    gap: 1rem; */
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 23%;
     gap: 1rem;
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+
+    /* snap */
+    scroll-snap-type: inline mandatory;
 }
 .card .card-details {
     display: flex;
@@ -93,13 +108,22 @@ body {
 }
 
 .card {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 5px; */
+
+    display: grid;
+    gap: 0.5rem;
+    grid-template-rows: min-content;
+    box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.225);
 }
 
 .card img {
     border-radius: 10px;
+
+    inline-size: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
 }
 
 .card .name {
