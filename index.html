@@ -10,22 +10,23 @@
 
     <div class="LoginIn">
         <form action="" class="form" id="logIn">
+
             <h1 class="form-title">Welcome Back!</h1>
 
             <div class="createAccount">
-                <small>New user? <a id="CreateNewAccount" href="./CreateAccount.html">Create an account</a></small>
+                <small>New user? <a id="CreateNewAccount" href="./CreateAccount.html" data-target="modal-SignUp">Create an account</a></small>
             </div>
 
             <!-- <div class="form-message form__message--error">This is an error message</div> -->
 
-            <div class="form-input-group">
+            <div class="form-input-group modal">
 
                 <label for="email" >Email Address</label><br>
-                <input type="email" id="email" name="email" value="" autofocus required><br>
+                <input type="email" id="LogIn-email" name="email" value="" autofocus required><br>
                 <!-- <div class="form__input-message--error">This is an error message</div> -->
             
                 <label for="password">Password</label><br>
-                <input type="password" id="password" name="password" required><br>
+                <input type="password" id="LogIn-password" name="LogIn-password" required><br>
                 <!-- <div class="form__input-message--error">This is an error message</div> -->
 
 
@@ -35,18 +36,20 @@
             </div>
 
             <div id="SignInButton">
-                <button id="SignIn" class="form-button" type="submit">Sign In</button>
+                <button id="SignIn" class="form-button" type="submit" href="./index.html"  data-target="modal-SignIn">Sign In</button>
             </div>
-            
 
         </form>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
-<script defer src="./init-firebase.js"></script>
-<script src="index.js" type="module"></script>
+        <div class="modal">
+            <h4>Account details</h4>
+            <div class="account-details"></div>
+        </div>
 
+        <!-- <div id="logout"> <button>Logout</button></div> -->
+
+<script src="index.js" type="module"></script>
+<script src="auth.js" type="module"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
