@@ -56,24 +56,31 @@
                 </ul>
             </div>
         </section>
-        <section class="artist_profiles">
+        <section class="artist_profiles hide">
+            <div id="choiceArea" class="choice_area"></div>
             <div class="search_bar">
                 <ul class="search_bar_elements">
-                    <li id="radius" class="search_bar_element selected">
-                        Set Radius
-                    </li>
+                    <li id="radius" class="search_bar_element">Set Radius</li>
                     <li id="service" class="search_bar_element">Any Service</li>
                     <li id="category" class="search_bar_element">
                         Any Category
                     </li>
                     <li class="search_button">
-                        <button type="submit">
+                        <button id="search_button" type="submit">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </li>
                 </ul>
             </div>
-            <div id="artist_profile_area"></div>
+            <div class="artist_profile_area">
+                <div class="heading_area">
+                    <h2>
+                        Find your artist <br />
+                        for your next upcycle art
+                    </h2>
+                </div>
+                <div id="profile_display_area"></div>
+            </div>
         </section>
 
         <script src="./dasborad.js"></script>

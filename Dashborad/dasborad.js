@@ -302,12 +302,93 @@ window.initMap = initMap;
 // search bar
 const searchElement = document.querySelectorAll(".search_bar_element");
 
+// expand portfolio display
+const artistProfiles = document.querySelector(".artist_profiles");
+
 searchElement.forEach((dropDown) => {
     dropDown.addEventListener("click", () => {
+        // change background color of choice of search
         searchElement.forEach((dd) => {
+            // remove class
             dd.classList.remove("selected");
-
+            // add class
             dropDown.classList.add("selected");
         });
+
+        // retrieve choice area
+        const choiceArea = document.querySelector(".choice_area");
+        const choiceAreaId = document.getElementById("choiceArea");
+
+        // Clear existing content in choice area
+        choiceAreaId.innerHTML = "";
+
+        if (dropDown.id === "radius") {
+            choiceArea.style.display = "block";
+
+            if (!document.querySelector(".radius_controller")) {
+                const radiusInputArea = document.createElement("div");
+                radiusInputArea.setAttribute("class", "radius_controller");
+
+                radiusInputArea.innerHTML = `
+                <h3>Set your range to find nearby services.</h3>
+                <div class="range_wrapper">
+                    <input id="fromSlider" type="range" value="10" min="0" max="100"/>
+                    <input id="toSlider" type="range" value="40" min="0" max="100"/>
+                </div>
+
+                `;
+
+                choiceAreaId.appendChild(radiusInputArea);
+            }
+
+            // -----------
+        } else if (dropDown.id === "service") {
+            choiceArea.style.display = "block";
+
+            if (!document.querySelector(".service_selector")) {
+                const serviceInputArea = document.createElement("div");
+                serviceInputArea.setAttribute("class", "service_selector");
+
+                serviceInputArea.innerHTML = `
+                    <h3>What are you looking for?</h3>
+                    <div class="service_choice_wrapper">
+                        <ul class="item_types">
+                            <li class="choice1">Top</li>
+                            <li class="choice2">Bottom</li>
+                            <li class="choice3">Outwear</li>
+                            <li class="choice4">Dress</li>
+                            <li class="choice5">Etc</li>
+                        </ul>
+                    </div>
+                `;
+
+                choiceAreaId.appendChild(serviceInputArea);
+            }
+        } else {
+            choiceArea.style.display = "block";
+
+            if (!document.querySelector(".category_selector")) {
+                const categoryInputArea = document.createElement("div");
+                categoryInputArea.setAttribute("class", "category_selector");
+
+                categoryInputArea.innerHTML = `
+                    <h3>Choose your preferred Service.</h3>
+                    <div class="category_choice_wrapper">
+                        <ul class="category_types">
+                            <li class="choice1">Upcycle</li>
+                            <li class="choice2">Tailor</li>
+                            <li class="choice3">Donate</li>
+                        </ul>
+                    </div>
+                `;
+
+                choiceAreaId.appendChild(categoryInputArea);
+            }
+        }
     });
 });
+
+// artistProfiles.addEventListener("click", () => {
+//     artistProfiles.classList.remove("hide");
+//     artistProfiles.classList.add("show");
+// });
