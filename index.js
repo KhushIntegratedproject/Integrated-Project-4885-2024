@@ -1,9 +1,7 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
-
-// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut,updateProfile, GoogleAuthProvider,signInWithPopup} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, collection, addDoc, setDoc,doc} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyALrqZzCRKFwwlJ1jB1ir1k8oTZz1DOLTA",
@@ -20,7 +18,9 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const google_provider = new GoogleAuthProvider();
 
+// db.settings({timestampsInSnapshots: true});
 
 async function addUser() {
   try {
@@ -36,3 +36,17 @@ async function addUser() {
 }
 
 addUser();
+
+
+
+// const SignIn = document.getElementById('SignIn');
+// SignIn.addEventListener('click',(e) => {
+
+//   var email = document.getElementById('email').value;
+//   var password = document.getElementById('password').value;
+//   var full_Name = document.getElementById('Full_Name').value;
+//   var New_passoword = document.getElementById('NewPassword').value;
+//   var Re_enter_password = document.getElementById('Re_enter_password').value;
+
+//------------------For Sign-Up-----------
+
