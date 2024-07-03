@@ -139,6 +139,7 @@ let map;
 async function initMap() {
     const { Map } = await google.maps.importLibrary("maps");
 
+    // * user's location
     const showPosition = (position) => {
         let pos = {
             lat: position.coords.latitude,
@@ -146,6 +147,19 @@ async function initMap() {
         };
 
         map.setCenter(pos);
+
+        let sunCircle = {
+            strokeColor: "#169080",
+            strokeOpacity: 0.5,
+            strokeWeight: 2,
+            fillColor: "#1A58",
+            fillOpacity: 0.35,
+            map: map,
+            center: pos,
+            radius: 1200, // in meters
+        };
+        cityCircle = new google.maps.Circle(sunCircle);
+        cityCircle.bindTo("center", marker, "position");
 
         const userLocation = new google.maps.Marker({
             position: { lat: pos.lat, lng: pos.lng },
@@ -284,3 +298,16 @@ async function initMap() {
 
 // *Initialize map
 window.initMap = initMap;
+
+// search bar
+const searchElement = document.querySelectorAll(".search_bar_element");
+
+searchElement.forEach((dropDown) => {
+    dropDown.addEventListener("click", () => {
+        searchElement.forEach((dd) => {
+            dd.classList.remove("selected");
+
+            dropDown.classList.add("selected");
+        });
+    });
+});
