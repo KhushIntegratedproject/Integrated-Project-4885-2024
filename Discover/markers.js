@@ -1,4 +1,4 @@
-// const markers = [
+// export const markers = [
 //     {
 //         locationName: "Guu Original Thurlow",
 //         lat: 49.2795446,
@@ -8,6 +8,8 @@
 //         tag: ["Thrift"],
 //         open: "11:00 AM - 10:00 PM",
 //         rating: "4.5",
+//         featuredImg: "https://picsum.photos/200/300?random=663",
+//         category: "Upcycle",
 //     },
 //     {
 //         locationName: "Noah's Cafe",
@@ -18,6 +20,8 @@
 //         tag: ["Thrift"],
 //         open: "7:00 AM - 8:00 PM",
 //         rating: "4.7",
+//         featuredImg: "https://picsum.photos/200/300?random=772",
+//         category: "Upcycle",
 //     },
 //     {
 //         locationName: "Shabusen Yakiniku House",
@@ -28,6 +32,8 @@
 //         tag: ["Thrift"],
 //         open: "11:30 AM - 10:30 PM",
 //         rating: "4.3",
+//         featuredImg: "https://picsum.photos/200/300?random=663",
+//         category: "Upcycle",
 //     },
 //     {
 //         locationName: "La Playita Seafood",
@@ -38,6 +44,8 @@
 //         tag: ["Thrift"],
 //         open: "12:00 PM - 9:00 PM",
 //         rating: "4.6",
+//         featuredImg: "https://picsum.photos/200/300?random=693",
+//         category: "Upcycle",
 //     },
 //     {
 //         locationName: "Suika Japanese Restaurant",
@@ -48,6 +56,8 @@
 //         tag: ["Thrift"],
 //         open: "12:00 PM - 10:00 PM",
 //         rating: "4.4",
+//         featuredImg: "https://picsum.photos/200/300?random=999",
+//         category: "Upcycle",
 //     },
 
 //     // duplication
@@ -61,6 +71,8 @@
 //         tag: ["Thrift"],
 //         open: "11:00 AM - 10:00 PM",
 //         rating: "4.5",
+//         featuredImg: "https://picsum.photos/200/300?random=234",
+//         category: "Donate",
 //     },
 //     {
 //         locationName: "Noah's Cafe",
@@ -71,6 +83,8 @@
 //         tag: ["Thrift"],
 //         open: "7:00 AM - 8:00 PM",
 //         rating: "4.7",
+//         featuredImg: "https://picsum.photos/200/300?random=359",
+//         category: "Fashion",
 //     },
 //     {
 //         locationName: "Shabusen Yakiniku House",
@@ -81,6 +95,8 @@
 //         tag: ["Thrift"],
 //         open: "11:30 AM - 10:30 PM",
 //         rating: "4.3",
+//         featuredImg: "https://picsum.photos/200/300?random=593",
+//         category: "Donate",
 //     },
 //     {
 //         locationName: "La Playita Seafood",
@@ -91,6 +107,8 @@
 //         tag: ["Thrift"],
 //         open: "12:00 PM - 9:00 PM",
 //         rating: "4.6",
+//         featuredImg: "https://picsum.photos/200/300?random=637",
+//         category: "Tailor",
 //     },
 //     {
 //         locationName: "Suika Japanese Restaurant",
@@ -101,41 +119,7 @@
 //         tag: ["Thrift"],
 //         open: "12:00 PM - 10:00 PM",
 //         rating: "4.4",
+//         featuredImg: "https://picsum.photos/200/300?random=693",
+//         category: "Tailor",
 //     },
 // ];
-
-// export default { markers };
-
-// container
-
-// if (!markers === null) {
-//     const container = document.getElementById("container");
-
-//     const containerWrapper = document.createElement("div");
-
-//     container.appendChild(containerWrapper);
-// }
-
-// // create cards
-
-// const cards = document.getElementById("cards-area");
-// console.log(cards);
-
-// for (let i = 0; i < markers.length; i++) {
-//     const card = document.createElement("div").setAttribute("class", "card");
-
-//     cards.appendChild(card);
-
-//     card.innerHTML = `<img
-// src="https://www.highsnobiety.com/static-assets/dato/1682630959-vintage-clothes-thrift-shopping-05.jpg"
-// alt=""
-// />
-// <div class="card-details">
-// <p class="name">${markers[i].locationName}</p>
-// <p class="address">${markers[i].address}</p>
-// <p class="tag_and_hour">
-//     <span>${markers[i].tag}</span>|<span>${markers[i].open}</span>
-// </p>
-// <p class="rating">${markers[i].rating}</p>
-// </div>`;
-// }

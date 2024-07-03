@@ -16,8 +16,9 @@
     --size-1: 3rem;
 
     --box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
-        0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
-        0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+        4px 2px 5px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+        -10px 8px 8px hsl(0deg 0% 0% / 0.075),
+        0 16px 16px hsl(0deg 0% 0% / 0.075);
 }
 
 img {
@@ -39,47 +40,98 @@ body {
 }
 
 #container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    padding: 2%;
-
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.top-container {
+    margin: 0;
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
 
-    padding: 4rem;
+    max-height: 250px;
 
-    background-color: white;
-    width: 90vw;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    border-radius: 0px 0 20px 20px;
-    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* display: grid; */
+    /* grid-template-columns: repeat(10, 1fr); */
+    /* grid-template-rows: repeat(6, 1fr); */
 }
 
 /* tags */
-.tags #tag {
-    /* box-shadow: 10px 5px 10px rgba(9, 174, 11, 0.225); */
+
+#container .tagList .tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+#container .tagList .tags .tag {
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border-radius: 30px;
     box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+
+#container .tagList .tags .tag.filter-active {
+    background-color: green;
+    color: white;
+}
+
+.top-container {
+    padding: 2.5rem;
+
+    background-color: white;
+    width: 90vw;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    box-shadow: 2.8px 2.8px 11.6px rgba(0, 0, 0, 0.022),
+        6.7px 6.7px 36.8px rgba(0, 0, 0, 0.032),
+        12.5px 12.5px 81.6px rgba(0, 0, 0, 0.04),
+        22.3px 22.3px 153.4px rgba(0, 0, 0, 0.048),
+        41.8px 41.8px 237.2px rgba(0, 0, 0, 0.058),
+        100px 100px 261px rgba(0, 0, 0, 0.08);
+}
+
+#container .right-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+#container .right-section .addPost-button button {
+    padding: 0.8rem 1.6rem;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 30px;
+}
+
+#container .right-section .profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+}
+
+#container .right-section .profile-img {
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    max-width: 100%;
+    display: block;
 }
 
 /* sidebar tags */
 
-.tags ul {
+/* .tags ul {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -91,20 +143,20 @@ body {
     padding: 0.3rem 0.6rem;
     background-color: white;
     border-radius: 30px;
-}
+} */
 
 /* sidebar cards */
-.cards {
+/* .cards {
     position: absolute;
     bottom: 0;
     padding: 2rem 4rem 2rem 0;
-}
+} */
 
-.cards {
-    /* display: flex;
+/* .cards { */
+/* display: flex;
     flex-direction: row;
     gap: 1rem; */
-    display: grid;
+/* display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 19%;
     gap: 2rem;
@@ -114,11 +166,11 @@ body {
     overscroll-behavior-inline: contain;
 
     /* snap */
-    scroll-snap-type: inline mandatory;
-    scroll-padding-inline: 3rem;
-}
+/* scroll-snap-type: inline mandatory;
+scroll-padding-inline: 3rem; */
+/* }  */
 
-.cards > * {
+/* .cards > * {
     scroll-snap-align: start;
 }
 
@@ -134,13 +186,9 @@ body {
     background-color: rgb(246, 246, 246);
     border: 1px solid rgb(213, 213, 213);
     border-radius: 10px;
-}
+} */
 
-.card {
-    /* display: flex;
-    flex-direction: column;
-    gap: 5px; */
-
+/* .card {
     display: grid;
     gap: 0.5rem;
     grid-template-rows: min-content;
@@ -185,7 +233,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-}
+} */
 
 /* sidebar --- */
 
