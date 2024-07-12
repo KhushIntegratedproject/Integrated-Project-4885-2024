@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="../Add Post page"> -->
+    <link rel="stylesheet" href="./add_post.css">
+    <title>Add Post</title>
+</head>
+<body>
+    <header>
+        <h1>Add Post</h1>
+        <p>Post a request and find a genius work for you</p>
+        <br>
+   
+    </header>
+
+    <main id="content" >
+         
+        <div class="add-post-page1">
+
+            <!-- <style> img{ height: 200px; width: 200px; border: 2px solid black;}</style> -->
+
+            Image Name <input id="namebox" type="text" accept=".jpg, .jpeg, .png" multiple><br>
+            <img id="myimg" >
+            <input type="file" id="file-selector" class="select" multiple><br>
+
+            <ul id="output"></ul>
+            <!-- <button id="drop-area" class="drop-area">Drop image</button> -->
+            <button id="upload">Upload image</button>
+            <p>
+                "I am looking for  
+                <div class="dropdown">
+                    <select class="Service" required>
+                        <option  value="" hidden selected>Service</option>
+                        <option value="Upcycle">Upcycle</option>
+                        <option value="Tailor">Tailor</option>
+                        <option value="Donate">Donate</option>
+                    </select>
+                </div>
+                 for my 
+                <div class="dropdown">
+                    <select class="Category" required>
+                        <optgroup label="Top">
+                            <option value="" disabled hidden selected>Category</option>
+                            <option value="T_shirt">T-shirt</option>
+                            <option value="Blouse">Blouse</option>
+                            <option value="Sweater">Sweater</option>
+                            <option value="Hoodie">Hoodie</option>
+                        </optgroup>
+                        <optgroup label="Bottom">
+                            <option value="Jeans">Jeans</option>
+                            <option value="Trousers">Trousers</option>
+                            <option value="Skirts">Skirts</option>
+                            <option value="Shorts">Shorts</option>
+                            <option value="Sweat_Pants">Sweat Pants</option>
+                        </optgroup>
+                        <optgroup label="Dress">
+                            <option value="dress">dress</option>
+                            <option value="Midi dresses">Midi dresses</option>
+                            <option value="full length">Full length</option>   
+                        </optgroup>
+                    </select>
+                </div>
+               
+                which are in 
+                <div class="dropdown">
+                    <select class="condition" required>
+                        <option value="" disabled hidden selected>Condition</option>
+                        <option value="New">New</option>
+                        <option value="Like New">Like New</option>
+                        <option value="Good Condition">Good Condition</option>
+                        <option value="bad Condition">Bad Condition</option>
+                    </select>
+                </div>
+                and the size
+                <div class="dropdown">
+                    <select class="size" required>
+                        <option value="" disabled hidden selected>Medium</option>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                    </select>
+                </div>
+                ."
+            </p>
+            <br>
+            <a href="../Dashborad/dashborad.html"><button type="submit">cancel</button></a>
+            <a href="#" ><button id="add-post-1to2btn"><i class="fa-solid fa-arrow-right"></i></button></a>
+        </div>
+        
+        <div class="add-post-page2 hidden">
+            <p>
+                I would like to set the maximum price of 
+                <input type="number" placeholder="$ Enter price" id="price" required></input>
+            </p>
+            <textarea name="Title" id="Title" cols="50" rows="2" required placeholder="Title"></textarea>
+            <br>
+            <textarea name="description" id="description" cols="50" rows="5" required placeholder="Would you like to describe your vision or any specific instruction?"></textarea>
+            <br>
+            <a href="../Add Post page/add_post_index.html"><button type="button">Cancel</button></a>
+            <br>
+            <a href="#"><button id="add-post-2to3btn" type="submit"><i class="fa-solid fa-arrow-right"></i></button></a>
+        </div>
+        
+        <div class="add-post-page3 hidden">
+            <h1>Yayy!! Your post has been added.</h1>
+            <div class="user_data"></div>
+            <a href="../Dashborad/dashborad.html"><button type="button">Cancel</button></a>
+        </div>
+            
+        
+ 
+    </main>
+    
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./add_post_index.js" type="module" ></script>
+</body>
+</html>
+

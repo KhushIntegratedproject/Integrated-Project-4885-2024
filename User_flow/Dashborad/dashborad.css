@@ -1,0 +1,389 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+}
+
+:root {
+    --size-1: 0.5rem;
+    --size-2: 2rem;
+    --size-1: 3rem;
+
+    --box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+        4px 2px 5px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
+        -10px 8px 8px hsl(0deg 0% 0% / 0.075),
+        0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+#map {
+    height: 100vh; /* The height is 400 pixels */
+    width: 100vw; /* The width is the width of the web page */
+}
+
+/* sidebar */
+
+body {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+#container {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    max-height: 250px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* display: grid; */
+    /* grid-template-columns: repeat(10, 1fr); */
+    /* grid-template-rows: repeat(6, 1fr); */
+}
+
+/* tags */
+
+#container .tagList .tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+#container .tagList .tags .tag {
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+
+#container .tagList .tags .tag.filter-active {
+    background-color: green;
+    color: white;
+}
+
+.top-container {
+    padding: 2.5rem;
+
+    background-color: white;
+    width: 90vw;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    box-shadow: 2.8px 2.8px 11.6px rgba(0, 0, 0, 0.022),
+        6.7px 6.7px 36.8px rgba(0, 0, 0, 0.032),
+        12.5px 12.5px 81.6px rgba(0, 0, 0, 0.04),
+        22.3px 22.3px 153.4px rgba(0, 0, 0, 0.048),
+        41.8px 41.8px 237.2px rgba(0, 0, 0, 0.058),
+        100px 100px 261px rgba(0, 0, 0, 0.08);
+}
+
+#container .right-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+#container .right-section .addPost-button button {
+    padding: 0.8rem 1.6rem;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 30px;
+}
+
+#container .right-section .profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+}
+
+#container .right-section .profile-img {
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    max-width: 100%;
+    display: block;
+}
+
+/* Search bar */
+.artist_profiles {
+    margin: 0;
+
+    height: 1000px;
+    width: 100%;
+
+    /* background-color: antiquewhite; */
+
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    transition: all 0.3s ease-in-out;
+}
+
+/* * when artist_profiles is hidden */
+.hide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.show {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.artist_profiles .search_bar > * {
+    transition: all 0.3s ease-in-out;
+}
+
+.artist_profiles .search_bar .search_bar_elements {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    width: max-content;
+    margin: 0 auto;
+    padding: 0.3rem;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.artist_profiles .search_bar .search_bar_elements .search_bar_element {
+    cursor: pointer;
+}
+
+/* .artist_profiles .search_bar .search_bar_elements .search_bar_element::after { */
+/* !border */
+/* content: "";
+    background: lightgrey;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 50%;
+    width: 2px;
+    transform: translateY(-50%);
+} */
+
+/* .artist_profiles
+    .search_bar
+    .search_bar_elements
+    .search_bar_element:nth-child(3):after { */
+/* !border */
+/* width: 0;
+    background: none;
+} */
+
+.artist_profiles .search_bar .search_bar_elements .search_bar_element {
+    padding: 1rem;
+    text-align: center;
+    min-width: 120px;
+    position: relative;
+}
+
+/* .artist_profiles
+    .search_bar
+    .search_bar_elements
+    .search_bar_element */
+
+.selected {
+    border-radius: 50px;
+    background-color: #67d9ca;
+    color: #1a5850;
+}
+
+.search_bar_elements .search_button {
+    padding-left: 0.5rem;
+}
+.search_bar_elements .search_button button {
+    cursor: pointer;
+    padding: 1rem;
+    border: none;
+    border-radius: 50px;
+    background: green;
+    color: white;
+}
+
+.artist_profiles .search_bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    grid-column: 4/8;
+    grid-row: 2/4;
+    z-index: 1000;
+}
+
+.choice_area {
+    width: 400px;
+    height: 170px;
+    background-color: white;
+    margin: 0 auto;
+    grid-column: 4/8;
+    grid-row: 1/2;
+    z-index: 1000;
+    margin-bottom: 1rem;
+
+    display: none;
+}
+
+.artist_profile_area {
+    width: 100%;
+    min-width: 90vw;
+    height: auto;
+    background-color: white;
+    grid-column: 2/10;
+    grid-row: 3/-1;
+    z-index: 0;
+
+    padding: 4.5rem 3rem 2rem 3rem;
+}
+
+.artist_profile_area .heading_area h2 {
+    font-size: 4rem;
+    font-weight: 300;
+}
+
+/* * range slider */
+
+.choice_area {
+    padding: 1.5rem;
+}
+
+.range_wrapper input[type="range"] {
+    box-sizing: border-box;
+    appearance: none;
+    width: 100%;
+    margin: 0;
+    padding: 0 2px;
+    /* Add some L/R padding to ensure box shadow of handle is shown */
+    overflow: hidden;
+    border: 0;
+    border-radius: 1px;
+    outline: none;
+    background: linear-gradient(grey, grey) no-repeat center;
+    /* Use a linear gradient to generate only the 2px height background */
+    background-size: 100% 2px;
+    pointer-events: none;
+}
+.range_wrapper input[type="range"]:active,
+.range_wrapper input[type="range"]:focus {
+    outline: none;
+}
+.range_wrapper input[type="range"]::-webkit-slider-thumb {
+    height: 28px;
+    width: 28px;
+    border-radius: 28px;
+    background-color: #fff;
+    position: relative;
+    margin: 5px 0;
+    /* Add some margin to ensure box shadow is shown */
+    cursor: pointer;
+    appearance: none;
+    pointer-events: all;
+    box-shadow: 0 1px 4px 0.5px rgba(0, 0, 0, 0.25);
+}
+.range_wrapper input[type="range"]::-webkit-slider-thumb::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 13px;
+    left: 100%;
+    width: 2000px;
+    height: 2px;
+}
+
+.range_wrapper {
+    position: relative;
+    height: 50px;
+}
+.range_wrapper input[type="range"] {
+    position: absolute;
+}
+.range_wrapper input[type="range"]:nth-child(1)::-webkit-slider-thumb::before {
+    background-color: red;
+}
+.range_wrapper input[type="range"]:nth-child(2) {
+    background: none;
+}
+.range_wrapper input[type="range"]:nth-child(2)::-webkit-slider-thumb::before {
+    background-color: grey;
+}
+
+/* service choice */
+.service_selector .service_choice_wrapper .item_types {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.service_selector .service_choice_wrapper .item_types li {
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* category choice */
+.category_selector .category_choice_wrapper .category_types {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.category_selector .category_choice_wrapper .category_types li {
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+
+.chat_button button{
+    cursor: pointer;
+    padding: 1rem;
+    border: none;
+    border-radius: 25px;
+    background: green;
+    color: white;
+}
+
+.artist_page{
+    color: black;
+}
