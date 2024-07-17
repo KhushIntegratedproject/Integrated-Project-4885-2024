@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Dashboard (Customer's)</title>
 
-        <link rel="stylesheet" href="./dashborad.css" />
+        <link rel="stylesheet" href="./dashborad.css"/>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWofBaedVctMV9E7AeprTKOJB8UuzGsD8&callback=initMap" async defer></script>
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -13,7 +14,7 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-        <!-- <script src="discover.js" defer></script> -->
+        <script type="module" src="./dasborad.js" defer ></script>
     </head>
     <body>
         <div id="map"></div>
@@ -21,7 +22,7 @@
             <div class="top-container">
                 <div class="searching-location">
                     <div class="logo">
-                        <img src="../Discover/icons/upzy-logo.png" alt="" />
+                        <img src="../icons/Logo.svg" alt="" />
                     </div>
                 </div>
 
@@ -36,7 +37,8 @@
                         <i class="fa-regular fa-bell"></i>
                     </div>
                     <div class="profile">
-                        <p class="name" id="name">Hi, Mudit</p>
+                        <p class="name" id="name">Hi, Bee</p>
+                        <small>User</small>
                         <img
                             src="https://picsum.photos/200"
                             alt=""
@@ -54,10 +56,11 @@
                 </ul>
             </div>
         </section>
-        <section class="artist_profiles hide">
-            <div id="choiceArea" class="choice_area"></div>
+
+        <section class="artist_profiles hide" id="artist_profiles">
+            
             <div class="search_bar">
-                <ul class="search_bar_elements">
+                <!-- <ul class="search_bar_elements">
                     <li id="radius" class="search_bar_element">Set Radius</li>
                     <li id="service" class="search_bar_element">Any Service</li>
                     <li id="category" class="search_bar_element">
@@ -69,7 +72,7 @@
                         </button>
                     </li>
                 </ul>
-                <ul>
+                <ul> -->
                     <a href="../Chat page/chat.html">
                         <li class="chat_button"><button><i class="fa-regular fa-comment fa-2xl"></i></button></li>
                     </a>            
@@ -91,18 +94,13 @@
            
         </section>
 
-        <script src="./dasborad.js"></script>
+        <!-- <script src="./dasborad.js"></script> -->
     </body>
 
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWofBaedVctMV9E7AeprTKOJB8UuzGsD8&callback=initMap"
-        async
-        defer
-       src="./index.js">
-        
-       src="./loginpage/auth.js"
-        src="./Add Post page/add_post_index.js"
-    </script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app-compat.js" ></script>
+        <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore-compat.js" ></script>
+        <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-storage-compat.js" ></script>
+        <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-database-compat.js" ></script>
 </html>
 
 <!-- API key -->

@@ -32,31 +32,75 @@ firebase.initializeApp(firebaseConfig);
 //     };
     
 //     const docRefPromise = addDoc( collection (db, 'Images'), period);
+  //------------user location -------
+
+
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     document.getElementById('add-post-1to2btn').addEventListener('click', function () {
+        //         getLocation();
+        //     });
+        // });
+
+        // function getLocation() {
+        //     navigator.geolocation.getCurrentPosition(gotLocation, failedToGet);
+        // }
+
+        // function gotLocation(position) {
+        //     console.log(user_location_lat, user_location_long);
+        //     // Optionally, you can show an alert or handle the position data
+        //     user_location_lat = position.coords.latitude;
+        //     user_location_long = position.coords.longitude;
+        //     alert(`Latitude: ${user_location_lat}, Longitude: ${user_location_long}`);
+        //     // initMap();
+        // }
+
+        // function failedToGet() {
+        //     console.log("There was some issue");
+        //     alert("Failed to get location");
+        // }
+
+
+
 
 //---------------------to create an collection, add and retrieve in firebase----------------------
 
 
 document.getElementById("add-post-2to3btn").onclick = function addPostOption(){
-    const service = document.querySelector('.Service').value;
-    console.log(`-------`);
 
-    const category = document.querySelector('.Category').value;
-    const condition = document.querySelector('.condition').value;
-    const medium = document.querySelector('.size').value;
-    const price = document.querySelector('#price').value;
-    const description = document.querySelector('#description').value;
-    const title = document.querySelector('#Title').value;
+  const service = document.querySelector('.Service').value;
+  const category = document.querySelector('.Category').value;
+  const condition = document.querySelector('.condition').value;
+  const medium = document.querySelector('.size').value;
+  const price = document.querySelector('#price').value;
+  const description = document.querySelector('#description').value;
+  const title = document.querySelector('#Title').value;
 
-    const addPostData = {
-                service: `${service}`,
-                category: `${category}`,
-                condition: `${condition}`,
-                medium: `${medium}`,
-                price: `${price}`,
-                description:`${description}`,
-                title: `${title}`
-            };
+  let user_location_lat, user_location_long;
 
+  function getLocation() {
+      return new Promise((resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject);
+      });
+  }
+
+  getLocation().then(position => {
+      user_location_lat = position.coords.latitude;
+      user_location_long = position.coords.longitude;
+
+      const addPostData = {
+          service: service,
+          category: category,
+          condition: condition,
+          medium: medium,
+          price: price,
+          description: description,
+          title: title,
+          latitude: user_location_lat,
+          longitude: user_location_long
+  };
+
+
+            
 
     // ------------uploading data---------
 
@@ -72,6 +116,8 @@ document.getElementById("add-post-2to3btn").onclick = function addPostOption(){
         timestamp: firebase.database.ServerValue.TIMESTAMP
     })
     });
+
+  })
 
     // ------------RETRIEVEING DATA -------------
 
@@ -97,8 +143,8 @@ document.getElementById("add-post-2to3btn").onclick = function addPostOption(){
     }).catch(function(error) {
         console.error("Error getting documents: ", error);
     });
+  
   }
-
     
 
 // -------------Select an image--------------
@@ -304,5 +350,6 @@ document.querySelector('#add-post-2to3btn').addEventListener('click', () => {
     document.querySelector('.add-post-page2').classList.remove('visible');
     document.querySelector('.add-post-page3').classList.add('visible');
   });
+
 
  

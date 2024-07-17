@@ -73,7 +73,7 @@ collectionRef.get().then(function(querySnapshot) {
                                 </div>
                                 <p>${profileDataArray[count].data.title}</p>
                                 <div class="hash-tag">
-                                    <div class="hast-tag-text"># ${profileDataArray[count].data.description}}</div>
+                                    <div class="hast-tag-text"># ${profileDataArray[count].data.description}</div>
                                 </div>
                             </div>
                         </article>
@@ -91,9 +91,7 @@ collectionRef.get().then(function(querySnapshot) {
             // previous_count = i;
         //    console.log(count);
 
-        }
-        
-
+        }       
     }
         
 )
@@ -125,7 +123,7 @@ function filterPosts(serviceType) {
                             <div class="chip-text">${post.data.service}</div>
                         </div>
                     </div>
-                    <p>${post.data.description || 'No description available'}</p>
+                    <p>${post.data.description} || 'No description available'</p>
                     <div class="hash-tag">
                         <div class="hast-tag-text"># ${post.data.category}, #${post.data.condition}</div>
                     </div>

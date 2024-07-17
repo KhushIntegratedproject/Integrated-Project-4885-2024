@@ -1,50 +1,604 @@
-  .dropdown{
-    display: inline-block;
-  }
-
-  .add-post-1to2btn{
-    display: block;
-  }
-
-  #image_input{
-    display: none;
-  }
-
-  label{
-    background-color: rgb(215, 215, 215);
-    padding: .2rem;
-    border: 1px solid black;
-  }
-
-.hidden{
-    display: none;
+/* AddPost Mobile */
+*{
+  box-sizing: border-box;
 }
 
-.visible{
-    display: block;
+body{
+  background: hsl(172, 54%, 22%);
+  margin: 0 3%;
 }
 
-#select{
-    background-color: yellow;
-    color: yellow;
+/* General styles for pages */
+.add-post-page2, .add-post-page3 {
+  /* Initial state for the pages */
+  display: none; /* Hide all pages initially */
 }
+
+/* Show the page when it has the 'visible' class */
+.add-post-page1.visible, .add-post-page2.visible, .add-post-page3.visible {
+  display: block; /* Show the page */
+}
+
+/* Hidden class style */
+.hidden {
+  display: none; /* Hide elements with the 'hidden' class */
+}
+
+/* Starts from here */
+
+.add-post{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 4.5rem;
+}
+
+.add-post-title h1{
+  color: #FFF;
+  font-family: "Noto Sans";
+  font-size: clamp(25px, 2vw + 1rem, 40px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+.add-post-title{
+  margin-bottom: 5rem;
+}
+
+.add-post p{
+  color: rgba(255, 255, 255, 0.50);
+  margin: 0;
+
+  font-family: var(--mobile-paragraph-text-font-family);
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: var(--mobile-paragraph-text-font-weight);
+}
+
+.add-post-content {
+      margin: auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+      max-width: 100%;
+      margin: auto;
+}
+
+.drop-down button.Service, button.Category, button.condition, button.Size{
+  display: flex;
+}
+
+.upload-box{
+  display: flex;
+  padding: 5rem 12rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+  margin: auto;
+  max-width: 100%;
+
+  border-radius: 30px;
+  border: 3px dashed #57A59B;
+}
+
+.upload-box-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.upload-icon-box{
+  display: flex;
+  background-color: #369480;
+  width: 4rem;
+  height: 4rem;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.upload-icon{
+  width: 2.3rem;
+  height: 2.3rem;
+}
+
+.upload-icon-wrapper{
+  position: relative;
+}
+
+.upload-icon-box{
+  position: relative;
+  z-index: 1;
+}
+
+.upload-box-hidden{
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: -5rem;
+  cursor: pointer;
+  z-index: 5;
+}
+
+input#file-selector {
+  font-size: 2rem;
+}
+
+.upload-box-wrapper .upload-text{
+  font-family: var(--mobile-subheading-font-family);
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: var(--mobile-subheading-font-weight);
+  color: rgba(255, 255, 255, 0.80);
+
+  width: 300px;
+  text-align: center;
+}
+
+.upload-box-wrapper .upload-text2{
+  font-family: var(--mobile-paragraph-text-font-family);
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-weight: var(--mobile-paragraph-text-font-weight);
+  color: rgba(255, 255, 255, 0.50);
+  margin: 0;
+
+  text-align: center;
+}
+
+.add-post-text-wrapper{
+  display: flex;
+  width: 390px;
+  align-items: center;
+  align-content: center;
+  gap: 20px 4px;
+  flex-wrap: wrap;
+  padding-top: 3rem;
+}
+
+.add-post-text{
+  color: #FFF;
+
+  font-family: var(--mobile-chip-text-big-font-family);
+  font-size: clamp(16px, 2vw, 25px);
+  font-weight: var(--mobile-chip-text-big-font-weight);
+  margin: .5rem;
+}
+
+/* AddPost Bottom ++++++++++++++++++++++++++++++=*/
+
+.add-post-bottom{
+  display: flex;
+  /* width: 90vw; */
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  padding-top: 8rem;
+  /* margin: auto; */
+}
+
+.cancel-button{
+  background: none;
+  border: none;
+  color: #57A59B;
+  text-align: center;
+  font-family: "Noto Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+  outline: none; 
+  transition: color 0.3s ease;
+}
+
+.cancel-button:hover {
+  color: #3a7e6b; 
+}
+
+#add-post-1to2btn{
+  background: white; /* White background */
+  border-radius: 200px; /* Fully rounded button */
+  width: 70px; /* Button width */
+  height: 70px; /* Button height */
+  display: flex; /* Flexbox for centering content */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Pointer cursor on hover */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth background and shadow transitions */
+}
+
+.next-arrow-icon{
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+/* drop-down-menu style++++++++++++++++++++++++++++*/
+
+.drop-down{
+  display: flex;
+  height: 34px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  background: #57A59B;
+  cursor: pointer;
+}
+
+.drop-down .Service, .drop-down .condition, .drop-down .Size, .drop-down .Category {
+  appearance: none; /* Remove default styling */
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.70);
+  font-family: var(--mobile-chip-text-big-font-family);
+  font-weight: var(--mobile-chip-text-big-font-weight);
+  font-size: var(--mobile-chip-text-big-font-size);
+  padding: 2px 5px;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  outline: none; /* Remove outline on focus */
+}
+
+.drop-down-menu, .drop-down-menu-3, .drop-down-menu-4{
+  display: none;
+  position: fixed; /* Fixed positioning to center the menu */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the menu */
+  background: #fff; /* White background for the menu */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 200px; /* Adjust width as needed */
+  z-index: 1000; /* Ensure the menu is above other elements */
+}
+
+.drop-down-menu-2{
+  display: none;
+  position: fixed; /* Fixed positioning to center the menu */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the menu */
+  background: #fff; /* White background for the menu */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 200px; /* Adjust width as needed */
+  z-index: 1000;
+}
+
+/* Styles for the dropdown menu items */
+.drop-down-menu ul, .drop-down-menu-3 ul, .drop-down-menu-4 ul, .drop-down ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.drop-down-menu.visible li, .drop-down-menu-3.visible li, .drop-down-menu-4.visible li, .drop-down-menu-2.visible .category{
+  padding: 10px;
+  color: #333;
+  cursor: pointer;
+
+  color: var(--Text-Color, #212427);
+
+  /* Mobile/SubHeading */
+  font-family: "Noto Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.drop-down-menu.visible, .drop-down-menu-3.visible, .drop-down-menu-4.visible {
+  display: flex;
+  width: 100vw;
+  position: fixed; 
+  bottom: 0;
+  transform: translate(-50%, 0%); /* Center the menu */
+  background: #fff; /* White background for the menu */
+  border-radius: 20px 20px 0px 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 1rem;
+  /* justify-content: center; */
+  /* align-items: center; */
+  overflow: hidden;
+}
+
+.drop-down-menu-2.visible{
+  display: flex;
+  width: 100vw;
+  position: fixed; 
+  bottom: 0;
+  transform: translate(-50%, 0%); /* Center the menu */
+  background: #fff; /* White background for the menu */
+  border-radius: 20px 20px 0px 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 1rem;
+  /* justify-content: center; */
+  /* align-items: center; */
+  overflow: auto;
+}
+
+.drop-down-menu.visible li .menu-detail{
+  color: var(--Text-hint, #A4A4A4);
+  font-family: "Noto Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-top: .5rem;
+}
+
+.drop-down-menu-2.visible li{
+  color: var(--Text-hint, #A4A4A4);
+  font-family: "Noto Sans";
+  font-size: .9rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-top: .5rem;
+  padding-left: 2rem;
+}
+
+.drop-down-menu.visible .select-title, .drop-down-menu-3.visible .select-title, .drop-down-menu-4.visible .select-title, .drop-down-menu-2.visible .select-title{
+  padding-bottom: 2rem;
+  border-bottom: 0px;
+  color: #212427;
+  font-family: "Noto Sans";
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-left: .5rem;
+}
+
+.drop-down-menu.visible ul li, .drop-down-menu-3.visible ul li, .drop-down-menu-4.visible ul li{
+  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  border-bottom: 2px solid #EEEEEE;
+  width: 95vw;
+}
+
+/* add-post-2++++++++++++++++++++++++++++++++++++++++++++ */
+
+.add-post-text-wrapper-2{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.add-post-page-2{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.add-post-text-2{
+
+  color: #FFF;
+  font-family: var(--mobile-chip-text-big-font-family);
+  font-size: clamp(16px, 2vw, 25px);
+  font-weight: var(--mobile-chip-text-big-font-weight);
+  margin-bottom: 3rem;
+  display: inline;
+  line-height: 2rem;
+}
+
+.price{
+  display: inline-block;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  border-radius: 100px;
+  background: #57A59B;
+  cursor: pointer;
+}
+
+/* bottom button */
+
+.back{
+  width: 32px;
+  height: 32px;
+}
+
+.button-right {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.add-post-bottom{
+  display: flex;
+  /* width: 90vw; */
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  padding-top: 8rem;
+  /* margin: auto; */
+}
+
+/* Remove all default styling from the input */
+
+
+input[type="number"] {
+  all: unset; /* Reset all inherited styles */
+  display: inline-block; /* Ensure the input stays inline */
+  padding: 2px 5px;
+}
+
+input[type="number"]::placeholder {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.626);
+  font-family: var(--mobile-chip-text-big-font-family);
+  font-weight: var(--mobile-chip-text-big-font-weight);
+  font-size: clamp(16px, 2vw, 25px);
+  padding: 2px 5px;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  outline: none;
+
   
-.drop-zone {
-    width: 200px;
-    height: 20px;
-    background: blueviolet;
-    margin: 10px;
-    padding: 10px;
+}
+
+.description{
+  display: flex;
+  padding: 1.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  min-width: 80%;
+  border-radius: 30px;
+  border: 3px #57A59B solid;
+}
+
+textarea {
+  all: unset; /* Reset all inherited styles */
+  display: block; /* Ensure the textarea stays as a block element */
+  width: 100%; /* Set width to 100% of the container */
+}
+
+textarea{
+  color: rgba(255, 255, 255);
+  font-family: "Noto Sans";
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+textarea::placeholder{
+  color: rgba(255, 255, 255, 0.585);
+  font-family: "Noto Sans";
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#add-post-2to3btn{
+  background: white; /* White background */
+  border-radius: 200px; /* Fully rounded button */
+  width: 70px; /* Button width */
+  height: 70px; /* Button height */
+  display: flex; /* Flexbox for centering content */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Pointer cursor on hover */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth background and shadow transitions */
+}
+
+.add-post-page3.visible {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.confetti{
+  background-image: url(../../icons/confetti.svg);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: -100%;
+  right: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.add-post-3-text h2{
+  font-size: 6rem;
+  margin: 0;
+}
+
+.add-post-3-text {
+  display: flex;
+  color: #FFF;
+  font-family: "Noto Sans";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+
+@media screen and (min-width: 1100px) {
+
+  body{
+      margin: 0 20%;
   }
 
-  .drop-area {
-    width: 200px;
-    height: 50px;
-    background: rgb(186, 171, 200);
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    padding: 10px;
+  .drop-down-menu.visible, .drop-down-menu-3.visible, .drop-down-menu-4.visible {
+      display: flex;
+      width: 40vw;
+      position: fixed; 
+      bottom: 0;
+      transform: translate(-50%, -60%); /* Center the menu */
+      background: #fff; /* White background for the menu */
+      border-radius: 20px 20px 20px 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      padding: 1rem;
+      /* justify-content: center; */
+      /* align-items: center; */
+      overflow: hidden;
   }
+
+  .drop-down-menu-2.visible{
+      display: flex;
+      width: 40vw;
+      position: fixed; 
+      bottom: 0;
+      transform: translate(-50%, -60%); /* Center the menu */
+      background: #fff; /* White background for the menu */
+      border-radius: 20px 20px 20px 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      padding: 1rem;
+      /* justify-content: center; */
+      /* align-items: center; */
+      overflow: auto;
+  }
+
+  .confetti{
+      right: -40%;
+
+  }
+
+
+  
+}

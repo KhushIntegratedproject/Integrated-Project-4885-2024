@@ -53,12 +53,26 @@ document.getElementById("uploadBtn").onclick = function addProfile(){
     const description = document.querySelector('#description').value;
     console.log(description);
 
+    let user_location_lat, user_location_long;
+
+  function getLocation() {
+      return new Promise((resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject);
+      });
+  }
+
+  getLocation().then(position => {
+      user_location_lat = position.coords.latitude;
+      user_location_long = position.coords.longitude;
+
 
 
     const addProfileData = {
                 service: `${service}`,
                 title: `${projectTitle}`,
                 description:`${description}`,
+                latitude: user_location_lat,
+                longitude: user_location_long
             };
 
     console.log(addProfileData);
@@ -78,6 +92,8 @@ document.getElementById("uploadBtn").onclick = function addProfile(){
         timestamp: firebase.database.ServerValue.TIMESTAMP
     })
     });
+  
+  })
 
     // ------------RETRIEVEING DATA -------------
 
@@ -106,4 +122,4 @@ document.getElementById("uploadBtn").onclick = function addProfile(){
     });
   }
 
- 
+

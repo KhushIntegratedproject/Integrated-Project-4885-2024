@@ -1,394 +1,224 @@
-const markers = [
-    {
-        locationName: "Guu Original Thurlow",
-        lat: 49.2795446,
-        lng: -123.1426288,
-        address: "838 Thurlow St, Vancouver, BC V6E 1W2, Canada",
-        img: "default.jpg", // Provide a default image path or URL
-        tag: ["Thrift"],
-        open: "11:00 AM - 10:00 PM",
-        rating: "4.5",
-        featuredImg: "https://picsum.photos/200/300?random=663",
-        category: "Upcycle",
-        price: 39,
-    },
-    {
-        locationName: "Noah's Cafe",
-        lat: 49.2823044,
-        lng: -123.1513701,
-        address: "1096 Denman St, Vancouver, BC V6G 2M8, Canada",
-        img: "default.jpg",
-        tag: ["Thrift"],
-        open: "7:00 AM - 8:00 PM",
-        rating: "4.7",
-        featuredImg: "https://picsum.photos/200/300?random=772",
-        category: "Upcycle",
-        price: 39,
-    },
-    {
-        locationName: "Shabusen Yakiniku House",
-        lat: 49.28017,
-        lng: -123.1381321,
-        address: "755 Burrard St #202, Vancouver, BC V6Z 1X6, Canada",
-        img: "default.jpg",
-        tag: ["Thrift"],
-        open: "11:30 AM - 10:30 PM",
-        rating: "4.3",
-        featuredImg: "https://picsum.photos/200/300?random=663",
-        category: "Upcycle",
-        price: 39,
-    },
-    {
-        locationName: "La Playita Seafood",
-        lat: 49.2754984,
-        lng: -123.1247803,
-        address: "360 Cambie St, Vancouver, BC V6B 1G8, Canada",
-        img: "default.jpg",
-        tag: ["Thrift"],
-        open: "12:00 PM - 9:00 PM",
-        rating: "4.6",
-        featuredImg: "https://picsum.photos/200/300?random=693",
-        category: "Upcycle",
-        price: 39,
-    },
-    {
-        locationName: "Suika Japanese Restaurant",
-        lat: 49.2699782,
-        lng: -123.1491633,
-        address: "1626 W Broadway, Vancouver, BC V6J 1X6, Canada",
-        img: "default.jpg",
-        tag: ["Thrift"],
-        open: "12:00 PM - 10:00 PM",
-        rating: "4.4",
-        featuredImg: "https://picsum.photos/200/300?random=999",
-        category: "Upcycle",
-        price: 39,
-    },
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut,updateProfile, GoogleAuthProvider,signInWithPopup} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+import { getFirestore, collection, addDoc, setDoc,doc,getDocs, getDoc} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+import {  getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-storage.js";
+// import { } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js";
 
-    // duplication
 
-    {
-        locationName: "Guu Original Thurlow",
-        lat: 49.2795446,
-        lng: -123.1426288,
-        address: "838 Thurlow St, Vancouver, BC V6E 1W2, Canada",
-        img: "default.jpg", // Provide a default image path or URL
-        tag: ["Thrift"],
-        open: "11:00 AM - 10:00 PM",
-        rating: "4.5",
-        featuredImg: "https://picsum.photos/200/300?random=234",
-        category: "Donate",
-        price: 39,
-    },
-    {
-        locationName: "Noah's Cafe",
-        lat: 49.2823044,
-        lng: -123.1513701,
-        address: "1096 Denman St, Vancouver, BC V6G 2M8, Canada",
-        img: "default.jpg",
-        tag: ["Thrift"],
-        open: "7:00 AM - 8:00 PM",
-        rating: "4.7",
-        featuredImg: "https://picsum.photos/200/300?random=359",
-        category: "Fashion",
-        price: 39,
-    },
-    {
-        locationName: "Shabusen Yakiniku House",
-        lat: 49.28017,
-        lng: -123.1381321,
-        address: "755 Burrard St #202, Vancouver, BC V6Z 1X6, Canada",
-        img: "default.jpg",
-        tag: ["Thrift"],
-        open: "11:30 AM - 10:30 PM",
-        rating: "4.3",
-        featuredImg: "https://picsum.photos/200/300?random=593",
-        category: "Donate",
-        price: 39,
-    },
-    {
-        locationName: "La Playita Seafood",
-        lat: 49.2754984,
-        lng: -123.1247803,
-        address: "360 Cambie St, Vancouver, BC V6B 1G8, Canada",
-        img: "default.jpg",
-        tag: ["Thrift"],
-        open: "12:00 PM - 9:00 PM",
-        rating: "4.6",
-        featuredImg: "https://picsum.photos/200/300?random=637",
-        category: "Tailor",
-        price: 39,
-    },
-    {
-        locationName: "Suika Japanese Restaurant",
-        lat: 49.2699782,
-        lng: -123.1491633,
-        address: "1626 W Broadway, Vancouver, BC V6J 1X6, Canada",
-        img: "default.jpg",
-        tag: ["Thrift"],
-        open: "12:00 PM - 10:00 PM",
-        rating: "4.4",
-        featuredImg: "https://picsum.photos/200/300?random=693",
-        category: "Tailor",
-        price: 39,
-    },
-];
+const firebaseConfig = {
+  apiKey: "AIzaSyALrqZzCRKFwwlJ1jB1ir1k8oTZz1DOLTA",
+  authDomain: "upzy-9530b.firebaseapp.com",
+  databaseURL: "https://upzy-9530b-default-rtdb.firebaseio.com",
+  projectId: "upzy-9530b",
+  storageBucket: "upzy-9530b.appspot.com",
+  messagingSenderId: "448313198620",
+  appId: "1:448313198620:web:6f150df0165df9e8cff7d9",
+  measurementId: "G-MS8KL2ZZ2H"
+};
 
-let map;
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+// const storage = getStorage(app);
+// const storageRef = ref(storage);
 
-async function initMap() {
-    const { Map } = await google.maps.importLibrary("maps");
+firebase.initializeApp(firebaseConfig);
 
-    // * user's location
-    const showPosition = (position) => {
-        let pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-        };
 
-        map.setCenter(pos);
+    let map;
+    const dataArray = [];
 
-        let sunCircle = {
-            strokeColor: "#169080",
-            strokeOpacity: 0.5,
-            strokeWeight: 2,
-            fillColor: "#1A58",
-            fillOpacity: 0.35,
-            map: map,
-            center: pos,
-            radius: 1200, // in meters
-        };
-        cityCircle = new google.maps.Circle(sunCircle);
-        cityCircle.bindTo("center", showPosition, "position");
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get location on page load
+        getLocation();
 
-        const userLocation = new google.maps.Marker({
-            position: { lat: pos.lat, lng: pos.lng },
-            map: map,
-        });
-        return userLocation, showPosition;
-    };
+        var firestore = firebase.firestore();
 
-    const showError = (error) => {
-        console.log(error);
-    };
+        var collectionRef = firestore.collection("addProfile");
 
-    const getLocation = () => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition, showError);
-        } else {
-            alert("not supported");
-        }
-    };
+        // Reference to your collection
 
-    getLocation();
+        // Retrieve all documents in the collection
+        collectionRef.get().then(querySnapshot => {
+            querySnapshot.forEach(doc => {
+                console.log(doc.id, " => ", doc.data());
+                dataArray.push({
+                    id: doc.id,
+                    data: doc.data()
+                });
 
-    // Location Markers
-    // ? green marker
-    const fehMarker = "../Discover/icons/icon-green.png";
-
-    const mapOptions = {
-        zoom: 15,
-        disableDefaultUI: true,
-    };
-
-    const map = new Map(document.getElementById("map"), mapOptions);
-
-    const infoWindow = new google.maps.InfoWindow({
-        minWidth: 200,
-        maxWidth: 200,
-    });
-
-    const markerLabel = (price, category) => {
-        return {
-            text: `$${price} - ${category}`,
-            color: "black",
-            fontSize: "16px",
-        };
-    };
-
-    document.addEventListener("DOMContentLoaded", () => {
-        // retrieve all the markers
-        let allMarkers = [];
-
-        const tags = document.querySelectorAll(".tag");
-        const defaultTag = "All";
-
-        tags.forEach((tag) => {
-            if (tag.innerText === defaultTag) {
-                tag.classList.add("filter-active");
-            }
-        });
-
-        // * create markers
-        const createMarker = (markerData) => {
-            const marker = new google.maps.Marker({
-                position: {
-                    lat: markerData.lat,
-                    lng: markerData.lng,
-                },
-                map: map,
-                label: fehMarker,
+                console.log(dataArray);
             });
 
-            const infoWindowContent = ``;
+            // Add markers after data is fetched
+            addMarkers();
+            // addDiscover_cards();
 
-            // ! add info window when each marker is clicked
+        }).catch(error => {
+            console.error("Error getting documents: ", error);
+        });
+    });
 
-            return marker;
-        };
+    function getLocation() {
+        function gotLocation(position) { 
+            console.log(position);
+            const user_location_lat = position.coords.latitude;
+            const user_location_long = position.coords.longitude;
+            initMap(user_location_lat, user_location_long);
+        }
+        
+        function failedToGet() { 
+            console.log("There was some issue");
+            alert("Failed to get location");
+        }
 
-        // * Clear Markers
-        const clearMarkers = () => {
-            allMarkers.forEach((marker) => marker.setMap(null));
-            allMarkers = [];
-        };
+        navigator.geolocation.getCurrentPosition(gotLocation, failedToGet);
+    }
 
-        // * Filter
-        tags.forEach((tag) => {
-            tag.addEventListener("click", () => {
-                // ? remove active class from all tags
-                tags.forEach((t) => t.classList.remove("filter-active"));
+    function initMap(lat, lng) {
+        const position = { lat: lat, lng: lng };
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: position,
+            zoom: 12,
+            mapTypeControl: false,
+            fullscreenControl: false,
+            streetViewControl: false
+        });
 
-                // ? Add "filter-active" class to the clicked tag
-                tag.classList.add("filter-active");
+        const marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: "You are here",
+            draggable: true,
+        });
 
-                // ? clear current markers from the array
-                clearMarkers();
+        const infoWindow = new google.maps.InfoWindow({
+            content: "You are here",
+        });
 
-                // ! Check if "All" is selected
-                if (tag.innerText === defaultTag) {
-                    markers.forEach((markerData) => {
-                        const newMarker = createMarker(markerData);
-                        allMarkers.push(newMarker);
-                        console.log(allMarkers);
-                    });
-                } else {
-                    // ! Filtering markers
-                    const filtered = markers.filter(
-                        (filteredMarker) =>
-                            filteredMarker.category === tag.innerText
-                    );
+        marker.addListener('click', function() {
+            infoWindow.open(map, marker);
+        });
+    }
 
-                    filtered.forEach((filter) => {
-                        const filteredMarker = createMarker(filter);
-                        allMarkers.push(filteredMarker);
-                    });
+    let addDiscoverCalled = false;
+    let clickedMarkerIndex = -1;
 
-                    console.log(filtered);
+    function addMarkers() {
+
+        if (!dataArray || dataArray.length === 0) {
+            console.error("dataArray is empty or not defined.");
+            return;
+        }
+    
+        dataArray.forEach((item, index) => {
+            if (!item || !item.data) {
+                console.error(`Item at index ${index} is undefined or missing data property.`);
+                return;
+            }
+        })
+
+        dataArray.forEach((item, index) => {
+            const marker = new google.maps.Marker({
+                position: { lat: item.data.latitude, lng: item.data.longitude },
+                map: map,
+                title: item.data.price,
+            });
+
+            const contentString = `
+                <div class="custom-info-window">
+                    <h1>${item.data.service}</h1>
+                </div>
+                `;
+
+            const infoWindow = new google.maps.InfoWindow({
+                content: contentString,
+            });
+
+            infoWindow.open(map, marker);
+            
+            marker.addListener('click', function() {
+                if (!addDiscoverCalled) {
+                    addDiscoverCalled = true;
+                    addDiscover_cards();
                 }
             });
+
+            console.log(`Marker ${index + 1}: ${item.data.price}`);
         });
 
-        // ! defaultMarker
-        markers.forEach((defaultMarker) => {
-            // const all = new google.maps.Marker({
-            //     position: {
-            //         lat: defaultMarker.lat,
-            //         lng: defaultMarker.lng,
-            //     },
-            //     map: map,
-            //     label: fehMarker,
-            // });
+        
+    }
 
-            const dfMarker = createMarker(defaultMarker);
-            allMarkers.push(dfMarker);
-        });
-    });
-}
-
-// *Initialize map
-window.initMap = initMap;
-
-// search bar
-const searchElement = document.querySelectorAll(".search_bar_element");
-
-// expand portfolio display
-const artistProfiles = document.querySelector(".artist_profiles");
-
-searchElement.forEach((dropDown) => {
-    dropDown.addEventListener("click", () => {
-        // change background color of choice of search
-        searchElement.forEach((dd) => {
-            // remove class
-            dd.classList.remove("selected");
-            // add class
-            dropDown.classList.add("selected");
-        });
-
-        // retrieve choice area
-        const choiceArea = document.querySelector(".choice_area");
-        const choiceAreaId = document.getElementById("choiceArea");
-
-        // Clear existing content in choice area
-        choiceAreaId.innerHTML = "";
-
-        if (dropDown.id === "radius") {
-            choiceArea.style.display = "block";
-
-            if (!document.querySelector(".radius_controller")) {
-                const radiusInputArea = document.createElement("div");
-                radiusInputArea.setAttribute("class", "radius_controller");
-
-                radiusInputArea.innerHTML = `
-                <h3>Set your range to find nearby services.</h3>
-                <div class="range_wrapper">
-                    <input id="fromSlider" type="range" value="10" min="0" max="100"/>
-                    <input id="toSlider" type="range" value="40" min="0" max="100"/>
-                </div>
-
-                `;
-
-                choiceAreaId.appendChild(radiusInputArea);
-            }
-
-            // -----------
-        } else if (dropDown.id === "service") {
-            choiceArea.style.display = "block";
-
-            if (!document.querySelector(".service_selector")) {
-                const serviceInputArea = document.createElement("div");
-                serviceInputArea.setAttribute("class", "service_selector");
-
-                serviceInputArea.innerHTML = `
-                    <h3>What are you looking for?</h3>
-                    <div class="service_choice_wrapper">
-                        <ul class="item_types">
-                            <li class="choice1">Top</li>
-                            <li class="choice2">Bottom</li>
-                            <li class="choice3">Outwear</li>
-                            <li class="choice4">Dress</li>
-                            <li class="choice5">Etc</li>
-                        </ul>
+    function addDiscover_cards() {
+        const add_discover_card = document.getElementById('artist_profiles');
+    
+        // Clear the existing discover cards
+        add_discover_card.innerHTML = '';
+    
+        // Add the card for the clicked marker at the top
+        if (clickedMarkerIndex == -1) {
+            const clickedItem = dataArray[clickedMarkerIndex];
+            console.log(clickedItem);
+            if (clickedItem && clickedItem.data) {
+                const newDiv = document.createElement('div');
+                newDiv.classList.add('discover-card');
+    
+                newDiv.innerHTML = `
+                    <div class="discover-img"></div>
+                    <p>${clickedItem.data.title}</p>
+                    <div class="discover-wrapper">
+                        <div class="service-offer">
+                            <div class="service-offer-text">Service Offered</div>
+                            <div class="service-chip">
+                                <div class="service-chip-text">${clickedItem.data.service}</div>
+                            </div>
+                        </div>
                     </div>
                 `;
-
-                choiceAreaId.appendChild(serviceInputArea);
-            }
-        } else {
-            choiceArea.style.display = "block";
-
-            if (!document.querySelector(".category_selector")) {
-                const categoryInputArea = document.createElement("div");
-                categoryInputArea.setAttribute("class", "category_selector");
-
-                categoryInputArea.innerHTML = `
-                    <h3>Choose your preferred Service.</h3>
-                    <div class="category_choice_wrapper">
-                        <ul class="category_types">
-                            <li class="choice1">Upcycle</li>
-                            <li class="choice2">Tailor</li>
-                            <li class="choice3">Donate</li>
-                        </ul>
-                    </div>
-                `;
-
-                choiceAreaId.appendChild(categoryInputArea);
+    
+                add_discover_card.appendChild(newDiv);
+            } else {
+                console.error("Clicked item is undefined or missing data property.");
             }
         }
-    });
-});
-
-// artistProfiles.addEventListener("click", () => {
-//     artistProfiles.classList.remove("hide");
-//     artistProfiles.classList.add("show");
-// });
+    
+        // Add the rest of the cards
+        dataArray.forEach((item, index) => {
+            if (index !== clickedMarkerIndex) {
+                if (!item || !item.data) {
+                    console.error(`Item at index ${index} is undefined or missing data property.`);
+                    return;
+                }
+    
+                const newDiv = document.createElement('div');
+                newDiv.classList.add('discover-card');
+    
+                newDiv.innerHTML = `
+                    <div class="discover-img"></div>
+                    <p>${item.data.title}</p>
+                    <div class="discover-wrapper">
+                        <div class="service-offer">
+                            <div class="service-offer-text">Service Offered</div>
+                            <div class="service-chip">
+                                <div class="service-chip-text">${item.data.service}</div>
+                            </div>
+                        </div>
+                        <a href="./dashborad.html"><button>Cancel</button></a>
+                    </div>
+                `;
+    
+                add_discover_card.appendChild(newDiv);
+            }
+        });
+    
+        add_discover_card.classList.remove('hide');
+        add_discover_card.classList.add('view_discover_card');
+        console.log("Discover cards added");
+    }
+    
+    // Call addMarkers() to initialize the markers and add the listeners
+    addMarkers();
+    
+    console.log("dataArray:", dataArray);
+    
