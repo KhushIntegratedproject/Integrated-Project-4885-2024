@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Upzy</title>
+</head>
+<body>
+
+    <div class="LoginIn">
+        <form action="" class="form" id="logIn">
+
+            <h1 class="form-title">Welcome Back!</h1>
+
+            <div class="createAccount">
+                <small>New user? <a id="CreateNewAccount" href="./CreateAccount.html" data-target="modal-SignUp">Create an account</a></small>
+            </div>
+
+            <!-- <div class="form-message form__message--error">This is an error message</div> -->
+
+            <div class="form-input-group modal">
+
+                <label for="email" >Email Address</label><br>
+                <input type="email" id="LogIn-email" name="email" value="" autofocus required><br>
+                <!-- <div class="form__input-message--error">This is an error message</div> -->
+            
+                <label for="password">Password</label><br>
+                <input type="password" id="LogIn-password" name="LogIn-password" required><br>
+                <!-- <div class="form__input-message--error">This is an error message</div> -->
+
+
+                <input type="checkbox" name="SaveId" id="SaveId">
+                <label for="SaveId">Keep me logged In</label><br>
+
+            </div>
+
+            <div id="SignInButton">
+                <button id="SignIn" class="form-button" type="submit" href="./index.html"  data-target="modal-SignIn">Sign In</button>
+            </div>
+
+        </form>
+
+        <div class="modal">
+            <h4>Account details</h4>
+            <div class="account-details"></div>
+        </div>
+
+        <!-- <div id="logout"> <button>Logout</button></div> -->
+
+<script src="index.js" type="module"></script>
+<script src="auth.js" type="module"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
