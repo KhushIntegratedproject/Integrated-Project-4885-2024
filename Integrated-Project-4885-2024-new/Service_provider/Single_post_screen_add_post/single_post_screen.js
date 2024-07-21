@@ -1,24 +1,31 @@
 // to add post of user to discover card folder
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
-// import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
-// import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut,updateProfile, GoogleAuthProvider,signInWithPopup} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
-// import { } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js";
-// import { getFirestore, collection, addDoc, setDoc,doc,getDocs, getDoc} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
-// import {  getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-storage.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut,updateProfile, GoogleAuthProvider,signInWithPopup} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+import { } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js";
+import { getFirestore, collection, addDoc, setDoc,doc,getDocs, getDoc} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+import {  getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-storage.js";
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyALrqZzCRKFwwlJ1jB1ir1k8oTZz1DOLTA",
-//   authDomain: "upzy-9530b.firebaseapp.com",
-//   databaseURL: "https://upzy-9530b-default-rtdb.firebaseio.com",
-//   projectId: "upzy-9530b",
-//   storageBucket: "upzy-9530b.appspot.com",
-//   messagingSenderId: "448313198620",
-//   appId: "1:448313198620:web:6f150df0165df9e8cff7d9",
-//   measurementId: "G-MS8KL2ZZ2H"
-// };
+const firebaseConfig = {
+  apiKey: "AIzaSyALrqZzCRKFwwlJ1jB1ir1k8oTZz1DOLTA",
+  authDomain: "upzy-9530b.firebaseapp.com",
+  databaseURL: "https://upzy-9530b-default-rtdb.firebaseio.com",
+  projectId: "upzy-9530b",
+  storageBucket: "upzy-9530b.appspot.com",
+  messagingSenderId: "448313198620",
+  appId: "1:448313198620:web:6f150df0165df9e8cff7d9",
+  measurementId: "G-MS8KL2ZZ2H"
+};
 
 
-// firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+
+// WORKINGSSSSSSSSSSSS===================
+var firestore = firebase.firestore();
+var collectionRef = firestore.collection("addPost");
+var profileDataArray = [];
+var count=0;
+
 
 //----------------------------Counting number of addpost----------------------//
 
@@ -88,7 +95,12 @@
 //     }
 // }
 
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
+    
+    
     const storedCount = localStorage.getItem('count');
     const storedDataArray = localStorage.getItem('dataArray');
 

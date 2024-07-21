@@ -35,7 +35,7 @@ let imgURL;
 //---------------------to create an collection, add and retrieve in firebase----------------------
 
 
-document.getElementById('uploadBtn').addEventListener('click', upImg )
+// document.getElementById('uploadBtn').addEventListener('click', upImg )
 
 // window.AddAProject = AddAProject;
 
@@ -87,9 +87,11 @@ document.getElementById('projectForm').addEventListener('submit', function(event
 });
 
 
-document.getElementById("uploadBtn").onclick = function addProfile(){
+document.getElementById("uploadBtn").onclick = async function addProfile(){
 
     event.preventDefault();
+
+    await upImg();
 
     const service = document.querySelector('#upc').value;
     console.log(service);
