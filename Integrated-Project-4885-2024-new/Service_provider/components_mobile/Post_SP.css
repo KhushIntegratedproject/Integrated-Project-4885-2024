@@ -1,0 +1,111 @@
+/* project_card mobile */
+
+/* body{
+    margin: 0 1rem;
+} */
+
+.project{
+    display: flex;
+    flex-direction: column;
+    width: 390px;
+    align-items: start;
+    gap: 8px;
+    position: relative;
+    /* margin: auto; */
+}
+
+.project a{
+    color: black;
+    text-decoration: none;
+}
+
+.project .project-profile{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.project .profile-img{
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+}
+
+.project .project-name{
+    color: #575757;
+    font-family: "Noto Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.project .project-pic{
+    width: 390px;
+    height: 200px;
+    flex-shrink: 0;
+    border-radius: 10px;
+/* background: url(https://picsum.photos/300/200) lightgray 50% / cover no-repeat; */
+}
+
+
+.project .project-chip{
+    display: inline-flex;
+    padding: 5px 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 20px;
+    background: var(--Accent-Color2, #FFF4F2);
+
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.project .chip-text{
+    color: var(--Accent-Color, #F2866E);
+    text-align: center;
+    /* Mobile/Chip Text */
+    position: relative;
+    width: fit-content;
+    font-family: "Noto Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.project p{
+    position: relative;
+    align-self: stretch;
+    font-family: var(--mobile-subheading-font-family);
+    font-weight: var(--mobile-subheading-font-weight);
+    font-size: var(--mobile-subheading-font-size);
+    color: var(--text-color);
+    margin: 0;
+}
+
+.project .hash-tag{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: .5rem;
+}
+
+.project .hast-tag-text{
+    color: #9E9E9E;
+
+    text-align: center;
+    /* Mobile/Chip Text */
+    font-family: "Noto Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.margin_article{
+    margin: 2rem 1rem;
+}

@@ -1,0 +1,47 @@
+.discover_post_cards{
+    margin: 3rem;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    width: 90vw;
+    background-color: #fff;
+    padding: 2rem;
+}
+
+.header-wrapper{
+    position: relative;
+    top: 50rem;
+}
+
+header .tagList .tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* .tagList li{
+    list-style-type: none;
+} */
+
+header .tagList .tags .tag {
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+
+header .tagList .tags .tag.filter-active {
+    background-color: green;
+    color: white;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

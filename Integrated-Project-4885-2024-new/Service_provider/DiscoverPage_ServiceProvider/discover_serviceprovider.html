@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Adding css links -->
+     <link rel="stylesheet" href="../components_mobile/Post_SP.css">
+     <link rel="stylesheet" href="../Single_post_screen_add_post/SPS_addPost.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="../components_mobile/Header.css">
+     <link rel="stylesheet" href="./disoverPage_SP.css">
+     <link rel="stylesheet" href="../DiscoverPage_ServiceProvider/disoverPage_SP.css">
+     <link rel="stylesheet" href="./discover_serviceprovider.html">
+     <link rel="stylesheet" href="../Single_post_screen_add_post/SPS_add_post.html">
+
+    <title>Disover_SP</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+    
+          <img src="../icons/Logo.svg" alt="logo" class="logo"></img>
+    
+          <div class="header-icon-wrapper">
+            <div class="message">
+              <i class="fa-regular fa-comment"></i>
+          </div>
+          <div class="notification">
+              <i class="fa-regular fa-bell"></i>
+          </div>
+          <div class="profile">
+              <a href="../Profile_Service_provder/Profile_SP.html">
+                  <p class="name" id="name">Hi, Mudit <br><small>Service Provider</small></p>
+
+                  <!-- <img
+                      src="https://picsum.photos/200"
+                      alt=""
+                      class="profile-img"
+                  /> -->
+              </a>
+          </div>
+            <!-- <div class="profile">
+                <i class="fa-regular fa-user fa-xl"></i>
+            </div>
+            <div class="notification">
+                <i class="fa-regular fa-bell fa-xl"></i>
+            </div> -->
+          </div>
+
+          <div class="tagList">
+            <ul class="tags">
+                <li id="all" class="tag filter-active">All</li>
+                <li class="tag upcycle">Upcycle</li>
+                <li class="tag tailor">Tailor</li>
+                <li class="tag Donate">Donate</li>
+            </ul>
+        </div>
+        </div>
+      </header>
+<!-- MAP THINGS--------------------------------------------- -->
+      <div id="map"></div>
+            <!-- <button id="share">Share my location</button> -->
+            <pre id="result"></pre>
+            <div class="header-wrapper">
+
+<!-- MAP ENDING----------------------------------------------- -->
+            
+      <!-- <a href="../Single_post_screen_add_post/SPS_add_post.html"></a> -->
+
+    <h1>Discover new projects and Showcase your craft</h1>
+    <div class="filter">
+        <input type="text" placeholder="Any service" id="service" value=""></input>
+        <input type="text" placeholder="Any category" id="category"></input>
+        <button id="search">search</button>
+    </div>
+
+    <div class="discover_post_cards" id="discover_post_cards">
+        
+    </div>
+
+    <a href="../Dashborad/dashborad.html"><div class="arrow-down-wrapper"><i class="fa-solid fa-arrow-left fa-xl"></i></div></a>
+
+
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore-compat.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-storage-compat.js"></script> 
+    <script type="module" src="./DiscoverPage_SP.js">
+    </script>
+</body>
+</html>

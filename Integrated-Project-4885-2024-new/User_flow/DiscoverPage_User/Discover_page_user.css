@@ -1,0 +1,52 @@
+.discover_post_cards{
+    margin: 3rem;
+}
+
+header .right-section .profile-img {
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    max-width: 100%;
+    display: block;
+}
+
+header .right-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+header .right-section .addPost-button button {
+    padding: 0.8rem 1.6rem;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 30px;
+}
+
+header .right-section .profile {
+    display: flex;
+    /* flex-direction: row; */
+    /* flex-flow: wrap row; */
+    /* flex-wrap: nowrap; */
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    width: 90vw;
+    background-color: #fff;
+    padding: 2rem;
+}
+
+.bcontent{
+    position: relative;
+    top: 38rem;
+}
+

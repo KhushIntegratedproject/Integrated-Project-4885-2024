@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./profile_SP.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./Profile_SP.js" defer type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app-compat.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore-compat.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-database-compat.js"></script>
+    <title>Add Profile</title>
+</head>
+<body>
+   <div class="profile_folder">
+        <h1>Share your work</h1>
+        <p>What have you been working on?</p>
+
+        <div class="upload"> 
+            <img src="" alt="" id="upload-preview">
+            <i class="fa-solid fa-cloud-arrow-up"></i> 
+            <label for="capture"><h2>Upload an image or video</h2></label><br>
+            <input type="file" id="capture" accept="image/*, video/*" multiple>
+            <caption>You can add up to 10 photos</caption>
+
+            <p><img src="" id="img-preview" alt=""/></p>
+        </div>
+
+        <div class="services">
+            <nav class="uptail">
+                <ul>
+                    <button id="upc" onclick="toggleText()">Upcycle</button>
+                    <button id="tail" onclick="toggleTextTailor()">Tailor</button>
+                </ul>
+            </nav>
+            <!-- <input type="text" placeholder="Tailor or Upcycle" id="service" required> -->
+        </div>
+
+        <form id="projectForm">
+            <input type="text" placeholder="Catchy Title here" id="projectTitle" required>
+            <div class="description">
+                <textarea placeholder="Explain your Techniques and Materials" id="description" required></textarea>
+            </div>
+
+            <button id="uploadBtn" type="submit" style="margin-bottom: 1.5rem;">Upload Project</button>
+            <a href="./profile_upload.html"><div class="arrow-down-wrapper" id="uploadBtn"><i class="fa-solid fa-arrow-right fa-xl"></i></div></a>
+            <button type="button" style="margin-top: 1.5rem;"><a href="../Dashborad/dashborad.html">Cancel</a></button>
+        </form>
+   </div>
+    
+ <script>
+</script>
+
+</body>
+</html>
